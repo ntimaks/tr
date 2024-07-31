@@ -19,7 +19,7 @@ import { url } from "inspector";
  */
 export const createTable = pgTableCreator((name) => `t3_${name}`);
 
-export const posts = createTable(
+export const images = createTable(
   "image",
   {
     id: serial("id").primaryKey(),
