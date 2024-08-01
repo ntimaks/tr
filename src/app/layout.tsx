@@ -7,7 +7,7 @@ import {
   UserButton,
 } from "@clerk/nextjs";
 import { TopNav } from "./_components/topnav";
-
+import "@uploadthing/react/styles.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 
