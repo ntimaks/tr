@@ -20,6 +20,9 @@ export default async function FullPageImageView(props: { photoid: number }) {
           <span>Created On:</span>
           <span>{new Date(image.createdAt).toLocaleDateString()}</span>
         </div>
+        <div className="flex flex-col p-2">
+          <button className="bg-neutral-900 text-white p-2 rounded">Delete</button>
+        </div>
       </div>
     </div>
   );
