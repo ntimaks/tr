@@ -10,6 +10,8 @@ import { TopNav } from "./_components/topnav";
 import "@uploadthing/react/styles.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
+import { CSPostHogProvider } from './_analytics/provider';
+
 
 export const metadata: Metadata = {
   title: "T3 App",
@@ -26,8 +28,10 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider>
+            <CSPostHogProvider>
+
       <html lang="en" className={`${GeistSans.variable}`}>
-        <body className={"${inter.variable} font-sans"}>
+        <body className="dark">
           <div className="grid h-screen grid-rows-[auto,1fr]">
             <TopNav />
             <main className="overflow-y-scroll">{children}</main>
@@ -36,6 +40,8 @@ export default function RootLayout({
           <div id="modal-root" />
         </body>
       </html>
+            </CSPostHogProvider>
+
     </ClerkProvider>
   );
 }
