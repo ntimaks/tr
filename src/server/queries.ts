@@ -21,14 +21,17 @@ export async function getMyImages() {
 
 export async function getImage(id: number) {
   const user = auth();
-  if (!user.userId) throw new Error("Unauthorized");
+  if (!user.userId) redirect("/login"); // Redirect to login page if not authenticated
 
   const image = await db.query.images.findFirst({
     where: (model, { eq }) => eq(model.id, id),
   });
-  if (!image) throw new Error("Image not found");
+  
+  if (!image) {
+    redirect("/"); // Redirect to home page if image not found
+  }
 
-  if (image.userId !== user.userId) throw new Error("Unauthorized");
+  if (image.userId !== user.userId) redirect("/"); // Redirect if user doesn't own the image
 
   return image;
 }
