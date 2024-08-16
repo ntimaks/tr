@@ -3,7 +3,7 @@ import "@uploadthing/react/styles.css";
 
 import { ClerkProvider } from "@clerk/nextjs";
 
-import { Inter } from "next/font/google";
+import { Outfit } from "next/font/google";
 import { TopNav } from "./_components/topnav";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
@@ -11,9 +11,10 @@ import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
 import { CSPostHogProvider } from "./_analytics/provider";
 
-const inter = Inter({
+
+
+const font = Outfit({
   subsets: ["latin"],
-  variable: "--font-sans",
 });
 
 export const metadata = {
@@ -21,6 +22,9 @@ export const metadata = {
   description: "Demo project",
   icons: [{ rel: "icon", url: "/AORIST.svg" }],
 };
+
+  
+
 
 export default function RootLayout({
   children,
@@ -42,8 +46,8 @@ export default function RootLayout({
              */
             routerConfig={extractRouterConfig(ourFileRouter)}
           />
-          <body className={`font-sans ${inter.variable} dark`}>
-            <div className="grid h-screen grid-rows-[auto,1fr]">
+    <body className={`${font.className} dark`}>
+              <div className="grid h-screen grid-rows-[auto,1fr]">
               <TopNav />
               <main className="overflow-y-scroll">{children}</main>
               {modal}
