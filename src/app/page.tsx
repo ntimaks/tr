@@ -12,15 +12,16 @@ async function Images() {
       {images.map((image) => (
         <div key={image.id} className="flex flex-col items-center">
           <Link href={`/img/${image.id}`} className="w-full aspect-square relative group">
-            <div className="w-full h-full p-0.5 bg-[#213c2f] ">
-              {/* Added hover effects for scale and glow */}
-              <div className="relative w-full h-full">
+            <div className="w-full h-full p-0.5 bg-white ">
+              <div className="relative w-full h-full overflow-hidden">
                 <Image
                   src={image.url}
                   alt={image.name}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, (max-width: 1280px) 25vw, 20vw"
-                  className="object-cover"
+                  className="object-cover
+                             transition-transform duration-300 ease-in-out
+                             group-hover:scale-110 group-active:scale-105"
                 />
               </div>
             </div>
