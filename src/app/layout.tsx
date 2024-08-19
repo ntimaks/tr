@@ -11,6 +11,7 @@ import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
 import { CSPostHogProvider } from "./_analytics/provider";
 import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 
 
@@ -56,6 +57,7 @@ export default function RootLayout({
             <div id="modal-root" />
             <Toaster />
                     <Analytics />
+                    <SpeedInsights />
 
           </body>
         </html>
