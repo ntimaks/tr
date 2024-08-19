@@ -10,6 +10,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "~/components/ui/sonner";
 import { CSPostHogProvider } from "./_analytics/provider";
+import { Analytics } from "@vercel/analytics/react"
 
 
 
@@ -54,6 +55,8 @@ export default function RootLayout({
             </div>
             <div id="modal-root" />
             <Toaster />
+                    <Analytics />
+
           </body>
         </html>
       </CSPostHogProvider>
